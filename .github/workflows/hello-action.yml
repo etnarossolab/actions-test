@@ -1,4 +1,4 @@
-name: Hello Action
+name: Multi-Job Example
 
 on:
   push:
@@ -6,9 +6,14 @@ on:
       - main
 
 jobs:
-  say-hello:
+  hello-job:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Hello, GitHub Actions!"
+      - name: Say Hello
+        run: echo "Hello!"
+
+  date-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show date
+        run: date
